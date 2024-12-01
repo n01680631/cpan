@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model Demo</title>
+    <style>
+        /* Style for the div element */
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            padding: 20px; 
+            border: 5px solid #454545; 
+            margin: 50px; 
+            box-sizing: border-box; 
+            transition: all 0.3s ease; 
+        }
+
+        /* Hover effect on the div */
+        #box:hover {
+            border-color: #256; /* Change border color on hover */
+        }
+
+    </style>
+</head>
+<body>
+
+    
+    <div id="box">
+        <p>This is a box element.</p>
+    </div>
+
+    <script>
+        
+        const box = document.getElementById('box');
+
+        // Change background color when the div is clicked
+        box.addEventListener('click', function() {
+            box.style.backgroundColor = box.style.backgroundColor === 'lightblue' ? 'lightcoral' : 'lightblue';
+        });
+
+        // Change padding when mouse is double-clicked
+        box.addEventListener('dblclick', function() {
+            box.style.padding = box.style.padding === '20px' ? '40px' : '20px';
+        });
+
+        // Change margin when mouse is right-clicked 
+        box.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); 
+            box.style.margin = box.style.margin === '50px' ? '100px' : '50px';
+        });
+
+        // Change width and height when mouse is moved over the div
+        box.addEventListener('mouseover', function() {
+            box.style.width = '250px';
+            box.style.height = '250px';
+        });
+
+        // Reset the width and height when mouse leaves the div
+        box.addEventListener('mouseout', function() {
+            box.style.width = '200px';
+            box.style.height = '200px';
+        });
+    </script>
+
+</body>
+</html>

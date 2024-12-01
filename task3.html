@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> List</title>
+    <style>
+        
+        ul {
+            list-style-type: none; 
+            padding: 0;
+        }
+
+
+        li {
+            padding: 20px;
+            font-size: 17px;
+            background-color: #f0f0f0;
+            margin: 5px 0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease; 
+        }
+
+        /* Hover effect for each list item */
+        li:hover {
+            background-color: #3498db;
+            color: white;
+            transform: scale(1.05); 
+        }
+    </style>
+</head>
+<body>
+    <!-- Unordered list -->
+    <ul id="myList">
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+    </ul>
+
+    <script>
+        // Function to generate a random string of characters (alphanumeric and symbols)
+        function generateRandomString(length) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+            let randomString = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                randomString += characters[randomIndex];
+            }
+            return randomString;
+        }
+
+        // Function to add a new <li> item to the list
+        function addNewListItem() {
+            const ul = document.getElementById('myList');
+            const newLi = document.createElement('li');
+            newList.textContent = 'Fourth item';
+            ul.appendChild(newList);
+
+            // Add event listener to the new item
+            newList.addEventListener('click', function() {
+                newList.textContent = generateRandomString(10); // Random string of 10 characters
+            });
+        }
+
+        // Function to add event listeners to each existing <li> item
+        function addClickListeners() {
+            const listItems = document.querySelectorAll('#myList list');
+            listItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    item.textContent = generateRandomString(10); // Random string of 10 characters
+                });
+            });
+        }
+
+        // Add the fourth list item when the page loads
+        window.onload = function() {
+            addNewListItem();
+            addClickListeners();
+        };
+    </script>
+</body>
+</html>
